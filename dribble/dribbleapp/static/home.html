@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dribbble Clone</title>
+
+<!-- Bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+/* Body */
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+}
+
+/* Navbar */
+
+.navbar{
+    background:white;
+    padding:15px 40px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    font-style:italic;
+}
+
+/* Hero Section */
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:65px;
+    font-weight:bold;
+    color:#1d1d1d;
+}
+
+.hero p{
+    color:gray;
+    font-size:20px;
+    margin-top:20px;
+}
+
+/* Search */
+
+.search-box{
+    width:80%;
+    margin:auto;
+    margin-top:35px;
+    display:flex;
+}
+
+.search-box input{
+    padding:15px;
+    border-radius:30px 0 0 30px;
+    border:1px solid #ccc;
+}
+
+.search-box button{
+    border-radius:0 30px 30px 0;
+    padding:15px 30px;
+}
+
+/* Trending */
+
+.trending{
+    margin-top:20px;
+}
+
+.trending span{
+    background:#ddd;
+    padding:7px 14px;
+    border-radius:20px;
+    margin:5px;
+    display:inline-block;
+    font-size:14px;
+}
+
+/* Projects */
+
+.projects{
+    padding:50px;
+}
+
+.projects h2{
+    margin-bottom:30px;
+    font-weight:bold;
+}
+
+.card{
+    overflow:hidden;
+    border-radius:15px;
+    border:none;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Image */
+
+.card img{
+    height:350px;
+    width:100%;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+.card img:hover{
+    transform:scale(1.05);
+}
+
+/* Hover Info */
+
+.project-card{
+    position:relative;
+}
+
+.project-info{
+    position:absolute;
+    bottom:-100%;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,0.8);
+    color:white;
+    padding:15px;
+    transition:0.4s;
+}
+
+.project-card:hover .project-info{
+    bottom:0;
+}
+
+.project-info h5{
+    margin:0;
+    font-size:20px;
+}
+
+.project-info p{
+    margin-top:5px;
+    font-size:14px;
+}
+
+/* Modal */
+
+.modal-content{
+    border-radius:20px;
+}
+
+.modal-header{
+    border:none;
+}
+
+.modal-body input{
+    margin-bottom:20px;
+    padding:12px;
+}
+
+.login-btn,
+.signup-btn{
+    width:100%;
+    background:black;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container-fluid">
+
+<a class="navbar-brand logo" href="#">
+Dribbble
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav me-auto ms-4">
+
+<li class="nav-item">
+<a class="nav-link" href="#">Explore</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Hire a Designer</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Find Jobs</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Blog</a>
+</li>
+
+</ul>
+
+<!-- Login -->
+
+<button class="btn btn-dark me-2"
+data-bs-toggle="modal"
+data-bs-target="#loginModal">
+
+Login
+
+</button>
+
+<!-- Signup -->
+
+<button class="btn btn-outline-dark"
+data-bs-toggle="modal"
+data-bs-target="#signupModal">
+
+Sign Up
+
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<h1>
+Discover the world's top designers
+</h1>
+
+<p>
+Explore work from the most talented and accomplished designers ready to take on your next project.
+</p>
+
+<!-- Search -->
+
+<div class="search-box">
+
+<input type="text"
+class="form-control"
+placeholder="What are you looking for?">
+
+<button class="btn btn-dark">
+Search
+</button>
+
+</div>
+
+<!-- Trending -->
+
+<div class="trending">
+
+<b>Trending searches:</b>
+
+<span>Landing Page</span>
+<span>Mobile App</span>
+<span>Logo Design</span>
+
+</div>
+
+</section>
+
+<!-- Projects -->
+
+<section class="projects">
+
+<h2>Popular Projects</h2>
+
+<div class="row g-4">
+
+<!-- Project 1 -->
+
+<div class="col-md-4">
+
+<div class="card project-card">
+
+<a href="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\4.png" target="_blank">
+
+<img src="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\4.png" class="card-img-top">
+
+</a>
+
+<div class="project-info">
+
+<h5>Creative Portfolio</h5>
+
+<p>
+Modern portfolio UI concept.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Project 2 -->
+
+<div class="col-md-4">
+
+<div class="card project-card">
+
+<a href="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\2.png" target="_blank">
+
+<img src="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\2.png" class="card-img-top">
+
+</a>
+
+<div class="project-info">
+
+<h5>3D Illustration</h5>
+
+<p>
+Beautiful 3D abstract composition.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Project 3 -->
+
+<div class="col-md-4">
+
+<div class="card project-card">
+
+<a href="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\5.png" target="_blank">
+
+<img src="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\5.png" class="card-img-top">
+
+</a>
+
+<div class="project-info">
+
+<h5>Minimal Design</h5>
+
+<p>
+Clean and elegant interface idea.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Project 4 -->
+
+<div class="col-md-4">
+
+<div class="card project-card">
+
+<a href="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\6.png" target="_blank">
+
+<img src="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\6.png" class="card-img-top">
+
+</a>
+
+<div class="project-info">
+
+<h5>Dark Theme UI</h5>
+
+<p>
+Modern dark mode dashboard.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Project 5 -->
+
+<div class="col-md-4">
+
+<div class="card project-card">
+
+<a href="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\3.png" target="_blank">
+
+<img src="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\3.png" class="card-img-top">
+
+</a>
+
+<div class="project-info">
+
+<h5>Landing Page</h5>
+
+<p>
+Startup landing page inspiration.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Project 6 -->
+
+<div class="col-md-4">
+
+<div class="card project-card">
+
+<a href="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\1.png" target="_blank">
+
+<img src="C:\Users\Marliya Banu\EX 10 DRIBBLE\Dribble\dribble\dribbleapp\static\1.png" class="card-img-top">
+
+</a>
+
+<div class="project-info">
+
+<h5>Mobile App</h5>
+
+<p>
+Creative mobile application concept.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Login Modal -->
+
+<div class="modal fade" id="loginModal">
+
+<div class="modal-dialog modal-dialog-centered">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h3>Login</h3>
+
+<button type="button"
+class="btn-close"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<input type="email"
+class="form-control"
+placeholder="Enter your email">
+
+<input type="password"
+class="form-control"
+placeholder="Enter your password">
+
+<button class="login-btn">
+Login
+</button>
+
+<p class="text-center mt-3">
+
+Don't have an account?
+
+<a href="#"
+data-bs-toggle="modal"
+data-bs-target="#signupModal">
+
+Sign Up
+
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Signup Modal -->
+
+<div class="modal fade" id="signupModal">
+
+<div class="modal-dialog modal-dialog-centered">
+
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h3>Sign Up</h3>
+
+<button type="button"
+class="btn-close"
+data-bs-dismiss="modal">
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<input type="text"
+class="form-control"
+placeholder="Enter your full name">
+
+<input type="email"
+class="form-control"
+placeholder="Enter your email">
+
+<input type="password"
+class="form-control"
+placeholder="Create password">
+
+<button class="signup-btn">
+Sign Up
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Bootstrap JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
